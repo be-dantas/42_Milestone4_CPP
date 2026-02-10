@@ -4,14 +4,16 @@ CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRCS		= megaphone.cpp
-OBJS		= $(SRCS:.c=.o)
+OBJS		= $(SRCS:.cpp=.o)
+
+SILENT		= @
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(SILENT)$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	$(SILENT)$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
