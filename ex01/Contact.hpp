@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <iomanip>
 
 class Contact
 {
@@ -20,6 +21,7 @@ class Contact
 						std::string number, 
 						std::string secret);
 		void printContactList(int i);
+		void printContact();
 };
 
 #endif

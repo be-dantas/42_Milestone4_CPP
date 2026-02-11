@@ -7,7 +7,7 @@ PhoneBook::PhoneBook()
 	old_contact = 0;
 }
 
-bool onlySpace(std::string s)
+static bool onlySpace(std::string s)
 {
 	if (s.empty())
 		return (false);
@@ -17,7 +17,7 @@ bool onlySpace(std::string s)
 	return (true);
 }
 
-void readInputAdd(std::string message, std::string &val)
+static void readInputAdd(std::string message, std::string &val)
 {
 	std::cout << message;
 	if (!std::getline(std::cin, val))
@@ -62,8 +62,8 @@ void PhoneBook::inputSearch()
 	if (count_list > 0)
 	{
 		std::cout << "     index|first name| last name|  nickname" << std::endl;
-		for (int i = 1; i <= count_list; i++)
-			printContactList(i);
+		for (int i = 0; i < count_list; i++)
+			ctt[i].printContactList(i + 1);
 
 		while (line.empty() || onlySpace(line))
 		{
@@ -74,13 +74,13 @@ void PhoneBook::inputSearch()
 				std::cout << "Fill in again" << std::endl;
 			else
 			{
-				if (std.len(line) > 1 || (line < '1' || line > '8'))
+				if (line.length() > 1 || (line < "1" || line > "8"))
 				{
 					std::cout << "Valid from 1 to 8" << std::endl;
 					//limpa line
 				}
 				else
-					//pb.ctt[line].print_contact();
+					ctt[line].print_contact();
 			}
 		}
 	}
