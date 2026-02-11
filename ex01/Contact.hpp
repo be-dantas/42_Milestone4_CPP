@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cctype>
 
 class Contact
 {
@@ -11,9 +12,14 @@ class Contact
 		std::string l_name;
 		std::string n_name;
 		std::string num;
-		std::string secret;
+		std::string sct;
 	public:
-		//void print_contact();
+		void addContact(std::string first, 
+						std::string last, 
+						std::string nick, 
+						std::string number, 
+						std::string secret);
+		void printContactList(int i);
 };
 
 #endif
