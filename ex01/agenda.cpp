@@ -1,59 +1,66 @@
-#include "Classes.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-void	input_add()
+PhoneBook::PhoneBook()
 {
-	if (old_contact == 8)
-		old_contact = 0;
-
-
-	while (!f_name)
-	{
-		std::cout << "First name: ";
-		if (!std::getline(std::cin, f_name))
-			//deve sair do programa
-		if (!f_name) //e se for só espaços?
-			std::cout << "Fill in again" << std::endl;
-	}
-
-
-
-	std::cout << "First name: ";
-	if (!std::getline(std::cin, f_name))
-		//deve sair do programa
-
-	std::cout << "Last name: ";
-	if (!std::getline(std::cin, l_name))
-		//deve sair do programa
-
-	std::cout << "Nickname: ";
-	if (!std::getline(std::cin, n_name))
-		//deve sair do programa
-
-	std::cout << "Phone number: ";
-	if (!std::getline(std::cin, num))
-		//deve sair do programa
-
-	std::cout << "Darkest secret: ";
-	if (!std::getline(std::cin, secret))
-		//deve sair do programa
-
-	//count_list++;
-	old_contact++;
+    count_list = 0;
+    old_contact = 0;
 }
 
-void	input_search()
-{
-	std::string line;
+// void PhoneBook::inputAdd()
+// {
+// 	if (old_contact == 8)
+// 		old_contact = 0;
 
-	std::cout << "     index|first name| last name|  nickname" << std::endl;
-	//func printar lista
-	std::cout << "Contact index: ";
-	if (!std::getline(std::cin, line))
-		//deve sair do programa
-	else
-		//validar numero em line
-		//pb.ctt[line].print_contact();
-}
+
+// 	while (!f_name)
+// 	{
+// 		std::cout << "First name: ";
+// 		if (!std::getline(std::cin, f_name))
+// 			//deve sair do programa
+// 		if (!f_name) //e se for só espaços?
+// 			std::cout << "Fill in again" << std::endl;
+// 	}
+
+
+
+// 	std::cout << "First name: ";
+// 	if (!std::getline(std::cin, f_name))
+// 		//deve sair do programa
+
+// 	std::cout << "Last name: ";
+// 	if (!std::getline(std::cin, l_name))
+// 		//deve sair do programa
+
+// 	std::cout << "Nickname: ";
+// 	if (!std::getline(std::cin, n_name))
+// 		//deve sair do programa
+
+// 	std::cout << "Phone number: ";
+// 	if (!std::getline(std::cin, num))
+// 		//deve sair do programa
+
+// 	std::cout << "Darkest secret: ";
+// 	if (!std::getline(std::cin, secret))
+// 		//deve sair do programa
+
+// 	//count_list++;
+// 	old_contact++;
+// }
+
+// void PhoneBook::inputSearch()
+// {
+// 	std::string line;
+
+// 	std::cout << "     index|first name| last name|  nickname" << std::endl;
+// 	//func printar lista
+// 	std::cout << "Contact index: ";
+// 	if (!std::getline(std::cin, line))
+// 		//deve sair do programa
+// 	else
+// 		//validar numero em line
+// 		//pb.ctt[line].print_contact();
+// }
 
 int	main(void)
 {
@@ -66,9 +73,9 @@ int	main(void)
 		if (!std::getline(std::cin, line))
 			break ;
 		if (line == "ADD")
-			pb.ctt[count_list].input_add();
+			pb.inputAdd();
 		else if (line == "SEARCH")
-			input_search();
+			pb.inputSearch();
 		else if (line == "EXIT")
 			break ;
 		else
