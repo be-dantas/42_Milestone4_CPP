@@ -1,9 +1,21 @@
-NAME		= megaphone
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/02/12 13:17:31 by bedantas          #+#    #+#              #
+#    Updated: 2026/02/12 13:17:32 by bedantas         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME		= agenda
 
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= agenda.cpp
+SRCS		= $(shell find . -name "*.cpp")
 
 OBJS		= $(SRCS:.cpp=.o)
 
