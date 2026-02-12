@@ -21,7 +21,7 @@ static void readInputAdd(std::string message, std::string &val)
 {
 	std::cout << message;
 	if (!std::getline(std::cin, val))
-		//deve sair do programa
+		std::exit(0);
 	if (val.empty() || onlySpace(val))
 		std::cout << "Fill in again" << std::endl;
 }
@@ -55,32 +55,45 @@ void PhoneBook::inputAdd()
 	old_contact++;
 }
 
+void PhoneBook::printList()
+{
+	std::cout << std::right << std::setw(10) << "index" << "|";
+	std::cout << std::right << std::setw(10) << "first name" << "|";
+	std::cout << std::right << std::setw(10) << "last name" << "|";
+	std::cout << std::right << std::setw(10) << "nickname" << std::endl;
+	for (int i = 0; i < count_list; i++)
+		ctt[i].printContactList(i + 1);
+}
+
 void PhoneBook::inputSearch()
 {
 	std::string line;
 
 	if (count_list > 0)
 	{
-		std::cout << "     index|first name| last name|  nickname" << std::endl;
-		for (int i = 0; i < count_list; i++)
-			ctt[i].printContactList(i + 1);
-
+		printList();
 		while (line.empty() || onlySpace(line))
 		{
 			std::cout << "Contact index: ";
 			if (!std::getline(std::cin, line))
-				//deve sair do programa
+				std::exit(0);
 			if (line.empty() || onlySpace(line))
 				std::cout << "Fill in again" << std::endl;
+			else if (line.length() == 1 && std::isdigit(line[0]))
+			{
+				int i = line[0] - '0';
+				if (i >= 1 && i <= count_list)
+					ctt[i - 1].printContact();
+				else
+				{
+					std::cout << "Valids digits from 1 to " << count_list << std::endl;
+					line.clear();
+				}
+			}
 			else
 			{
-				if (line.length() > 1 || (line < "1" || line > "8"))
-				{
-					std::cout << "Valid from 1 to 8" << std::endl;
-					//limpa line
-				}
-				else
-					ctt[line].print_contact();
+				std::cout << "Valids digits from 1 to " << count_list << std::endl;
+				line.clear();
 			}
 		}
 	}

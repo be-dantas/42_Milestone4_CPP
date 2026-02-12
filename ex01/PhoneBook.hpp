@@ -13,6 +13,7 @@ class PhoneBook
 		PhoneBook();
 		void inputAdd();
 		void inputSearch();
+		void printList();
 };
 
 #endif
