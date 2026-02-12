@@ -6,11 +6,11 @@
 #    By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/12 13:17:31 by bedantas          #+#    #+#              #
-#    Updated: 2026/02/12 13:17:32 by bedantas         ###   ########.fr        #
+#    Updated: 2026/02/12 13:57:49 by bedantas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= agenda
+NAME		= phonebook
 
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98

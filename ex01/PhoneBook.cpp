@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:17:50 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/12 13:17:51 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/12 14:05:58 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void PhoneBook::inputAdd()
 		readInputAdd("Darkest secret: ", secret);
 
 	ctt[old_contact].addContact(first, last, nick, number, secret);
+	std::cout << "Contact added" << std::endl;
 
 	if (count_list < 8)
 		count_list++;
