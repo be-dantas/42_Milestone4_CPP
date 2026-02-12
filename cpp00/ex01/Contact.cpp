@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 13:17:35 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/12 13:17:36 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/12 17:03:58 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void Contact::printContactList(int i)
 
 void Contact::printContact()
 {
-	std::cout << f_name << std::endl;
-	std::cout << l_name << std::endl;
-	std::cout << n_name << std::endl;
-	std::cout << num << std::endl;
-	std::cout << sct << std::endl;
+	std::cout << "First name: " << f_name << std::endl;
+	std::cout << "Last name: " << l_name << std::endl;
+	std::cout << "Nickname: " << n_name << std::endl;
+	std::cout << "Phone number: " << num << std::endl;
+	std::cout << "Darkest secret: " << sct << std::endl;
 }
