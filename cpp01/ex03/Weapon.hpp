@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 16:13:22 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/16 16:13:23 by bedantas         ###   ########.fr       */
+/*   Created: 2026/02/16 16:14:50 by bedantas          #+#    #+#             */
+/*   Updated: 2026/02/16 16:14:51 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-void randomChump(std::string name)
+#include <iostream>
+
+class Weapon
 {
-	Zombie z(name);
-	z.announce();
-}
+	private:
+		std::string type;
+	public:
+		Weapon(std::string type);
+		~Weapon();
+		const std::string& getType() const; //const no começo: retornar um tipo const string. Const no final: impede da função mudar o objeto original
+		void setType(std::string type);
+};
+
+#endif

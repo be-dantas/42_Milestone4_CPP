@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/02/16 16:14:25 by bedantas          #+#    #+#              #
-#    Updated: 2026/02/16 16:14:26 by bedantas         ###   ########.fr        #
+#    Created: 2026/02/16 16:14:55 by bedantas          #+#    #+#              #
+#    Updated: 2026/02/16 16:14:56 by bedantas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= hi
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp
+SRCS		= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

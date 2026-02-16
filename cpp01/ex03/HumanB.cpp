@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 16:13:22 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/16 16:13:23 by bedantas         ###   ########.fr       */
+/*   Created: 2026/02/16 16:15:02 by bedantas          #+#    #+#             */
+/*   Updated: 2026/02/16 17:15:16 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-void randomChump(std::string name)
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
+
+HumanB::~HumanB() {}
+
+void HumanB::setWeapon(Weapon& weapon)
 {
-	Zombie z(name);
-	z.announce();
+	this->weapon = &weapon;
+}
+
+void HumanB::attack()
+{
+	if (!weapon)
+		std::cout << name << " : he has no weapon" << std::endl;
+	else
+		std::cout << name << " : attacked with a " << weapon->getType() << std::endl;
 }

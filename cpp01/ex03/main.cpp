@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 16:13:22 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/16 16:13:23 by bedantas         ###   ########.fr       */
+/*   Created: 2026/02/16 16:14:57 by bedantas          #+#    #+#             */
+/*   Updated: 2026/02/16 17:25:28 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-void randomChump(std::string name)
+int main()
 {
-	Zombie z(name);
-	z.announce();
+	{
+		Weapon weapon = Weapon("KNIFE");
+		HumanA bob("Bob", weapon);
+		bob.attack();
+		weapon.setType("HAMMER");
+		bob.attack();
+	}
+	
+	{
+		Weapon weapon = Weapon("KNIFE");
+		HumanB jim("Jim");
+		jim.attack();
+		jim.setWeapon(weapon);
+		jim.attack();
+		weapon.setType("HAMMER");
+		jim.attack();
+	}
+	
+	return (0);
 }
