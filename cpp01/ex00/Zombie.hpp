@@ -9,7 +9,7 @@ class Zombie
 		std::string name;
 	public:
 		~Zombie();
-		Zombie(std::string name); // é apenas uma declaração do construtor, não o objeto ainda, por isso não recebe z. Diz: o tipo Zombie pode receber name
+		Zombie(std::string name);
 		void announce(void);
 };
 

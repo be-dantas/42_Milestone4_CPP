@@ -4,7 +4,7 @@ int main(void)
 {
 	Zombie* docin;
 
-	randomChump("Pompom"); //cria, anuncia e destroi
+	randomChump("Pompom");
 	
 	docin = newZombie("Docin");
 	docin->announce();

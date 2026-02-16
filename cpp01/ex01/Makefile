@@ -1,9 +1,9 @@
-NAME		= moarbrainz
+NAME		= horde
 
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= $(shell find . -name "*.cpp")
+SRCS		= main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

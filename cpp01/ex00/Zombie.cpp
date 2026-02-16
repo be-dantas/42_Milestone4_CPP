@@ -1,15 +1,13 @@
 #include "Zombie.hpp"
 
-//arquivo para iniciar todos conteúdos da Class
-
 Zombie::~Zombie()
 {
-	std::cout << name << " destroyed" << std::endl; //o c++ chama ele automaticamente quando ele para de exitir, não precisa chamar ~Zombie
+	std::cout << name << " destroyed" << std::endl;
 }
 
-Zombie::Zombie(std::string name) //classe zombie::mebro zombie
+Zombie::Zombie(std::string name)
 {
-	this->name = name; //this pq as variaveis têm nomes iguais, então: this é um ponteiro implícito para o objeto atual.
+	this->name = name;
 }
 
 void Zombie::announce(void)
