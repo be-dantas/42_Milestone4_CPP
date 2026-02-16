@@ -2,14 +2,14 @@
 
 int main(void)
 {
-    int N = 5;
-    Zombie* horde;
+	int N = 5;
+	Zombie* horde;
 
-    horde = zombieHorde(N, "Bias");
+	horde = zombieHorde(N, "Bias");
 
-    for (int i = 0; i < N; i++)
-        horde[i].announce();
+	for (int i = 0; i < N; i++)
+		horde[i].announce();
 
-    delete[] horde;
-    return (0);
+	delete[] horde;
+	return (0);
 }
