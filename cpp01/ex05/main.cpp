@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:57:19 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/17 18:22:02 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/17 18:54:05 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ int main(void)
 	harl.complain("INFO");
 	harl.complain("WARNING");
 	harl.complain("ERROR");
+	harl.complain("LALALALA");
+	
 	return (0);	
 }

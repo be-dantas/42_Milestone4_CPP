@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:56:58 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/17 18:13:51 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/17 19:31:36 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,16 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	
+	std::string allLevels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"}; //array(vetor) de 4 objetos
+	void (Harl::*actions[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (allLevels[i] == level)
+		{
+			(this->*actions[i])();
+			return ;
+		}
+	}
+	std::cout << "Sem reclamações" << std::endl;
 }
