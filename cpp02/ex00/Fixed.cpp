@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:37:43 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/20 11:33:45 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:54:30 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,23 @@ Fixed::~Fixed()
 
 Fixed::Fixed()
 {
-	_raw = 0;
 	std::cout << "Default constructor called" << std::endl;
+	_raw = 0;
 }
 
-Fixed::Fixed(const Fixed &copyClass) //sem & ficaria em loop infinito
+Fixed::Fixed(const Fixed &copyClass)
 {
-	*this = copyClass; //operador = faz uma cópia da referencia recebida
 	std::cout << "Copy constructor called" << std::endl;
+	*this = copyClass;
 }
 
-// Fixed::sobrecarga do operador de atribuição de cópia
-// {
-// 	...
-// 	std::cout << "Copy assignment operator called" << std::endl;
-// }
+Fixed& Fixed::operator=(const Fixed &copyClass)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &copyClass)
+		this->_raw = copyClass._raw;
+	return (*this);
+}
 
 int Fixed::getRawBits(void) const
 {
@@ -43,6 +45,6 @@ int Fixed::getRawBits(void) const
 
 void Fixed::setRawBits(int const raw)
 {
-	_raw = raw;
 	std::cout << "setRawBits member function called" << std::endl;
+	_raw = raw;
 }

@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:38:20 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/20 11:30:54 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:54:45 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &copyClass);
-		//sobrecarga do operador de atribuição de cópia
 		~Fixed();
+		Fixed &operator=(const Fixed &copyClass);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
