@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 16:14:50 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/18 16:56:34 by bedantas         ###   ########.fr       */
+/*   Created: 2026/02/20 10:38:20 by bedantas          #+#    #+#             */
+/*   Updated: 2026/02/20 11:30:54 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
-class Weapon
+class Fixed
 {
 	private:
-		std::string type;
+		int _raw;
+		static const int _nbits = 8;
 	public:
-		Weapon(std::string type);
-		~Weapon();
-		const std::string& getType() const;
-		void setType(std::string type);
+		Fixed();
+		Fixed(const Fixed &copyClass);
+		//sobrecarga do operador de atribuição de cópia
+		~Fixed();
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
 };
 
 #endif

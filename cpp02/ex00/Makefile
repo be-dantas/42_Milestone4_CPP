@@ -6,16 +6,16 @@
 #    By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/16 16:14:55 by bedantas          #+#    #+#              #
-#    Updated: 2026/02/18 16:55:24 by bedantas         ###   ########.fr        #
+#    Updated: 2026/02/20 10:37:02 by bedantas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= weapon
+NAME		= compiled
 
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+SRCS		= main.cpp Fixed.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

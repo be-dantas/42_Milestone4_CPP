@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/16 16:14:50 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/18 16:56:34 by bedantas         ###   ########.fr       */
+/*   Created: 2026/02/20 10:37:43 by bedantas          #+#    #+#             */
+/*   Updated: 2026/02/20 11:34:54 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-
-class Weapon
+int main(void)
 {
-	private:
-		std::string type;
-	public:
-		Weapon(std::string type);
-		~Weapon();
-		const std::string& getType() const;
-		void setType(std::string type);
-};
-
-#endif
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+	c = b;
+	
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return (0);
+}
