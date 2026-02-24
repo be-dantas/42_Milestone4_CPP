@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 10:37:43 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/20 16:49:39 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/24 10:30:28 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ Fixed::Fixed(const Fixed &copyClass)
 	*this = copyClass;
 }
 
-Fixed& Fixed::operator=(const Fixed &copyClass)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &copyClass)
-		this->_raw = copyClass._raw;
-	return (*this);
-}
-
 Fixed::Fixed(const int raw)
 {
 	std::cout << "Int constructor called" << std::endl;
@@ -48,6 +40,18 @@ Fixed::Fixed(const float raw)
 	std::cout << "Float constructor called" << std::endl;
 	_raw = roundf(raw * (1 << _nbits));
 }
+
+/***************************************************************/
+
+Fixed& Fixed::operator=(const Fixed &copyClass)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &copyClass)
+		this->_raw = copyClass._raw;
+	return (*this);
+}
+
+/***************************************************************/
 
 int Fixed::getRawBits(void) const
 {
@@ -70,6 +74,8 @@ int Fixed::toInt(void) const
 {
 	return (_raw >> _nbits);
 }
+
+/***************************************************************/
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
 {
