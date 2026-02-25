@@ -6,16 +6,16 @@
 #    By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/16 16:14:55 by bedantas          #+#    #+#              #
-#    Updated: 2026/02/25 17:54:49 by bedantas         ###   ########.fr        #
+#    Updated: 2026/02/25 17:55:52 by bedantas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ClapTrap
+NAME		= ScavTrap
 
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp ClapTrap.cpp
+SRCS		= main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
