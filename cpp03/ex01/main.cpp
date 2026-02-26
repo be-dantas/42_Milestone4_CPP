@@ -6,33 +6,32 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 11:55:57 by bedantas          #+#    #+#             */
-/*   Updated: 2026/02/25 17:06:39 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/02/26 11:48:31 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void)
+int main()
 {
-	ClapTrap a;
-	ClapTrap b("Bia");
-	ClapTrap c(b);
-	a = b;
+	std::cout << "---- ClapTrap Test ----" << std::endl;
+	ClapTrap a("A");
+	a.attack("target1");
+	a.takeDamage(5);
+	a.beRepaired(3);
 
-	b.attack("Wes");
-	b.attack("Wes");
-
-	b.takeDamage(1);
-	b.takeDamage(2);
-
-	b.beRepaired(1);
+	std::cout << "\n---- ScavTrap Test ----" << std::endl;
+	ScavTrap b("B");
+	b.attack("target2");      // deve usar override do ScavTrap
+	b.takeDamage(30);
 	b.beRepaired(10);
+	b.guardGate();
 
-	std::cout << "-----------------------------------------------------------" << std::endl;
+	std::cout << "\n---- Energy Drain Test ----" << std::endl;
+	for (int i = 0; i < 55; i++)
+		b.attack("dummy");
 
-	// Testando limite de energia
-	for (int i = 0; i < 12; i++)
-		b.attack("Teste");
-
-	return (0);
+	std::cout << "\n---- Destruction ----" << std::endl;
+	return 0;
 }
