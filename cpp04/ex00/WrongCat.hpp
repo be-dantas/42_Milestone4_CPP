@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 10:31:18 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 15:32:16 by bedantas         ###   ########.fr       */
+/*   Created: 2026/03/02 15:31:26 by bedantas          #+#    #+#             */
+/*   Updated: 2026/03/02 15:33:06 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 	private:
 
 	public:
-		~Cat();
-		Cat();
-		Cat(const Cat& copy);
-		Cat& operator=(const Cat& copy);
+		~WrongCat();
+		WrongCat();
+		WrongCat(const WrongCat& copy);
+		WrongCat& operator=(const WrongCat& copy);
 
 		void makeSound() const;
 };
