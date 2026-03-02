@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:31:18 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 15:32:19 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:12:27 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
 	private:
-
+		Brain* brain;
 	public:
 		~Dog();
 		Dog();

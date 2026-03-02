@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:58:48 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 15:57:36 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:02:20 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,26 @@
 
 int main()
 {
-	const Animal* animal = new Animal();
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
+	const int size = 4;
+	Animal* animals[size];
 	
-	std::cout << animal->getType() << ", ";
-	animal->makeSound();
+	for (int i = 0; i < size / 2; i++)
+		animals[i] = new Dog();
+	for (int i = size / 2; i < size; i++)
+		animals[i] = new Cat();
+	
+	// animals[0].brain.setBrain(0, "Quero passear");
+	// animals[size].brain.setBrain(0, "Me sirva");
 
-	std::cout << dog->getType() << ", ";
-	dog->makeSound();
+	//PRINT
+	for (int i = 0; i < size; i++)
+	{
+		std::cout << animals[i]->getType() << ", ";
+		animals[i]->makeSound();
+	}
 	
-	std::cout << cat->getType() << ", ";
-	cat->makeSound();
-	
-	delete animal;
-	delete dog;
-	delete cat;
-
-	std::cout << "-----------------------------------------" << std::endl;
-
-	const WrongAnimal* wrongAnimal = new WrongAnimal();
-	const WrongAnimal* wrongCat = new WrongCat();
-	
-	std::cout << wrongAnimal->getType() << ", ";
-	wrongAnimal->makeSound();
-	
-	std::cout << wrongCat->getType() << ", ";
-	wrongCat->makeSound();
-	
-	delete wrongAnimal;
-	delete wrongCat;
+	for (int i = 0; i < size; i++)
+		delete animals[i];
 	
 	return (0);
 }

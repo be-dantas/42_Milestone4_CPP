@@ -6,20 +6,23 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:56:41 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 15:20:39 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:17:49 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 
-Dog::~Dog() {
+Dog::~Dog()
+{
+	delete brain;
 	std::cout << "--Dog: destrutor--" << std::endl;
 }
 
 Dog::Dog() : Animal()
 {
 	type = "Dog";
+	brain = new Brain();
 	std::cout << "--Dog: construtor padrão--" << std::endl;
 }
 
@@ -33,7 +36,11 @@ Dog& Dog::operator=(const Dog& copy)
 {
 	std::cout << "--Dog: operador de cópia--" << std::endl;
 	if (this != &copy)
+	{
 		this->type = copy.type;
+		delete this->brain;
+		this->brain = new Brain(*copy.brain); 
+	}
 	return (*this);
 }
 
