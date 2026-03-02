@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/02 10:45:54 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 15:56:55 by bedantas         ###   ########.fr       */
+/*   Created: 2026/03/02 10:56:41 by bedantas          #+#    #+#             */
+/*   Updated: 2026/03/02 15:20:26 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
+#include "Cat.hpp"
 
-Animal::~Animal() {
-	std::cout << "--Animal: destrutor--" << std::endl;
+Cat::~Cat() {
+	std::cout << "--Cat: destrutor--" << std::endl;
 }
 
-Animal::Animal() : type("Nada") {
-	std::cout << "--Animal: construtor padrão--" << std::endl;
-}
-
-Animal::Animal(const Animal& copy)
+Cat::Cat() : Animal()
 {
-	std::cout << "--Animal: construtor de cópia--" << std::endl;
+	type = "Cat";
+	std::cout << "--Cat: construtor padrão--" << std::endl;
+}
+
+Cat::Cat(const Cat& copy) : Animal(copy)
+{
+	std::cout << "--Cat: construtor de cópia--" << std::endl;
 	*this = copy;
 }
 
-Animal& Animal::operator=(const Animal& copy)
+Cat& Cat::operator=(const Cat& copy)
 {
-	std::cout << "--Animal: operador de cópia--" << std::endl;
+	std::cout << "--Cat: operador de cópia--" << std::endl;
 	if (this != &copy)
 		this->type = copy.type;
 	return (*this);
 }
 
-std::string Animal::getType() const {
-	return (type);
-}
-
-void Animal::makeSound() const {
-	std::cout << "sem som" << std::endl;
+void Cat::makeSound() const {
+	std::cout << "MIAU" << std::endl;
 }
