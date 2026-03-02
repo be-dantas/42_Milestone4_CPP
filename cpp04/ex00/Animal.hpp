@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:31:18 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 11:44:54 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:17:50 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ class Animal
 	protected:
 		std::string type;
 	public:
-		~Animal();
+		virtual ~Animal();
 		Animal();
 		Animal(const Animal& copy);
 		Animal& operator=(const Animal& copy);
 
-		void makeSound() const;
+		virtual void makeSound() const;
 		std::string getType() const;
 };
 

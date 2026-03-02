@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:58:48 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 14:02:16 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:19:06 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,15 @@ int main()
 	std::cout << meta->getType() << " ";
 	meta->makeSound();
 
-	std::cout << j->getType() << " ";
+	std::cout << i->getType() << " ";
 	i->makeSound();
 	
-	std::cout << i->getType() << " ";
+	std::cout << j->getType() << " ";
 	j->makeSound();
+	
+	delete meta;
+	delete i;
+	delete j;
 	
 	return (0);
 }
