@@ -15,15 +15,15 @@
 
 Dog::~Dog()
 {
-	delete brain;
 	std::cout << "--Dog: destrutor--" << std::endl;
+	delete brain;
 }
 
 Dog::Dog() : Animal()
 {
+	std::cout << "--Dog: construtor padrão--" << std::endl;
 	type = "Dog";
 	brain = new Brain();
-	std::cout << "--Dog: construtor padrão--" << std::endl;
 }
 
 Dog::Dog(const Dog& copy) : Animal(copy)
@@ -45,5 +45,9 @@ Dog& Dog::operator=(const Dog& copy)
 }
 
 void Dog::makeSound() const {
-	std::cout << "AU AU" << std::endl;
+	std::cout << "AU AU";
+}
+
+Brain& Dog::getBrain() {
+	return (*brain);
 }

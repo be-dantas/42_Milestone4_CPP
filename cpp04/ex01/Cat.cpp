@@ -15,15 +15,15 @@
 
 Cat::~Cat()
 {
-	delete brain;
 	std::cout << "--Cat: destrutor--" << std::endl;
+	delete brain;
 }
 
 Cat::Cat() : Animal()
 {
+	std::cout << "--Cat: construtor padrão--" << std::endl;
 	type = "Cat";
 	brain = new Brain();
-	std::cout << "--Cat: construtor padrão--" << std::endl;
 }
 
 Cat::Cat(const Cat& copy) : Animal(copy)
@@ -45,5 +45,9 @@ Cat& Cat::operator=(const Cat& copy)
 }
 
 void Cat::makeSound() const {
-	std::cout << "MIAU" << std::endl;
+	std::cout << "MIAU";
+}
+
+Brain& Cat::getBrain() {
+	return (*brain);
 }
