@@ -38,7 +38,10 @@ Brain& Brain::operator=(const Brain& copy)
 	return (*this);
 }
 
-std::string Brain::getIdea(int index) const {
+std::string Brain::getIdea(int index) const
+{
+	if (index < 0 || index > 99)
+		return ("");
 	return (ideas[index]);
 }
 
