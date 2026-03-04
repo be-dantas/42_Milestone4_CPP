@@ -6,7 +6,7 @@
 /*   By: bedantas <bedantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 16:23:45 by bedantas          #+#    #+#             */
-/*   Updated: 2026/03/02 19:19:25 by bedantas         ###   ########.fr       */
+/*   Updated: 2026/03/04 09:30:32 by bedantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ Brain& Brain::operator=(const Brain& copy)
 	return (*this);
 }
 
-std::string Brain::getIdea(int index) const {
+std::string Brain::getIdea(int index) const
+{
+	if (index < 0 || index > 99)
+		return ("");
 	return (ideas[index]);
 }
 
