@@ -19,9 +19,9 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(1) {}
 Bureaucrat::Bureaucrat(std::string newName, int newGrade) : name(newName)
 {
 	if (newGrade < 1)
-		;//função de exceção menor
+		throw GradeTooLowException();
 	else if (newGrade > 150)
-		;//função de exceção maior
+		throw GradeTooHighException();
 	else
 		grade = newGrade;
 }
@@ -37,22 +37,44 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& copy)
 
 /**********************************************************************/
 
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return ("Grade too high");
+}
 
-//função de exceção menor e maior
-
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return ("Grade too low");
+}
 
 /**********************************************************************/
 
-void Bureaucrat::decrementGrade()
-{
-	if (grade == 1)
-		;//função de exceção menor
-	grade--;	
+const std::string Bureaucrat::getName() const {
+	return (name);
 }
+
+int Bureaucrat::getGrade() const {
+	return (grade);
+}
+
+/**********************************************************************/
 
 void Bureaucrat::incrementGrade()
 {
+	if (grade == 1)
+		throw GradeTooLowException();
+	grade--;
+}
+
+void Bureaucrat::decrementGrade()
+{
 	if (grade == 150)
-		;//função de exceção maior
-	grade++;	
+		throw GradeTooHighException();
+	grade++;
+}
+
+/**********************************************************************/
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &b)
+{
+	os << b.getName() << ", grade: " << b.getGrade();
+	return (os); 
 }
