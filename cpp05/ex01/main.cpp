@@ -11,79 +11,31 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-/* Bureaucrat("Ana", 0)
-       ↓
-grade < 1
-       ↓
-throw GradeTooHighException()
-       ↓
-programa procura catch
-       ↓
-catch(std::exception&)
-       ↓
-e.what()
-       ↓
-"Grade too high" */
+#include "Form.hpp"
 
 int main()
 {
-	std::cout << "----- Teste 1: criação válida -----" << std::endl;
-	try
-    {
-		Bureaucrat a("Alice", 42);
-		std::cout << a << std::endl;
-	}
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl; }
-
-	std::cout << "\n----- Teste 2: grade muito alta -----" << std::endl;
 	try
 	{
-		Bureaucrat b("Bob", 0);
-		std::cout << b << std::endl;
+		Bureaucrat boss("Alice", 10);
+		Bureaucrat intern("Bob", 120);
+
+		Form contract("Contract", 50, 20);
+
+		std::cout << boss << std::endl;
+		std::cout << intern << std::endl;
+		std::cout << contract << std::endl;
+
+		std::cout << "\n--- Tentativa de assinatura ---\n" << std::endl;
+
+		intern.signForm(contract); // deve falhar
+		boss.signForm(contract);   // deve funcionar
+
+		std::cout << "\n--- Estado final do formulário ---\n" << std::endl;
+		std::cout << contract << std::endl;
 	}
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl; }
-
-	std::cout << "\n----- Teste 3: grade muito baixa -----" << std::endl;
-	try
-	{
-		Bureaucrat c("Charlie", 151);
-		std::cout << c << std::endl;
-	}
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl; }
-
-	std::cout << "\n----- Teste 4: incrementGrade -----" << std::endl;
-	try
-	{
-		Bureaucrat d("David", 2);
-		std::cout << d << std::endl;
-
-		d.incrementGrade();
-		std::cout << d << std::endl;
-
-		d.incrementGrade(); // deve lançar exceção
-		std::cout << d << std::endl;
-	}
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl; }
-
-	std::cout << "\n----- Teste 5: decrementGrade -----" << std::endl;
-	try
-	{
-		Bureaucrat e("Eva", 149);
-		std::cout << e << std::endl;
-
-		e.decrementGrade();
-		std::cout << e << std::endl;
-
-		e.decrementGrade(); // deve lançar exceção
-		std::cout << e << std::endl;
-	}
-	catch (std::exception& e) {
-		std::cout << e.what() << std::endl; }
+	catch (std::exception &e) {
+		std::cout << "Erro: " << e.what() << std::endl; }
 
 	return (0);
 }

@@ -14,36 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <string>
 
-//Resumo da classe:
-//Deve criar um tipo Bureaucrat que:
-//Recebe nome e grade
-//Permite subir ou descer
-//Impede sair do intervalo
-//Lança exceção quando necessário
-
-
-/* Resumo de objeto para erro:
-separar lógica normal do tratamento
-propagação automática
-tratamento flexível
-hierarquia de erros
-captura por tipo
-
-Analogia simples1:
-Imagine uma fábrica.
-Se uma máquina quebra:
-
-❌ Máquina resolve tudo sozinha (se fosse uma função de erro)
-(imprime erro e continua)
-
-✔ Máquina dispara um alarme (classe/objeto para erro)
-O gerente decide:
-parar a linha
-trocar a peça
-chamar manutenção
-A exceção é esse alarme. */
-
+class Form;
 
 class Bureaucrat
 {
@@ -71,8 +44,10 @@ class Bureaucrat
 
 		void incrementGrade();
 		void decrementGrade();
+
+		void signForm(Form& f);
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &b);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif
