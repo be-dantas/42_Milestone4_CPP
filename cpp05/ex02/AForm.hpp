@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <string>
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string name;
@@ -26,16 +26,19 @@ class Form
 		const int signGrade;
 		const int execGrade;
 	public:
-		~Form();
-		Form();
-		Form(const std::string newName, const int newSign, const int newExec);
-		Form(const Form& copy);
-		Form& operator=(const Form& copy);
+		~AForm();
+		AForm();
+		AForm(const std::string newName, const int newSign, const int newExec);
+		AForm(const AForm& copy);
+		AForm& operator=(const AForm& copy);
 
 		class GradeTooHighException : public std::exception {
 			const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
+			const char* what() const throw();
+		};
+		class FormNotSignedException : public std::exception {
 			const char* what() const throw();
 		};
 
@@ -45,8 +48,10 @@ class Form
 		int getExecGrade() const;
 
 		void beSigned(const Bureaucrat& b);
+		void execute(Bureaucrat const & executor) const;
+		virtual void execForm() const = 0;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif

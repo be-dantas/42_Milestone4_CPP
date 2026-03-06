@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::~Bureaucrat() {}
 
@@ -72,7 +72,7 @@ void Bureaucrat::decrementGrade()
 
 /**********************************************************************/
 
-void Bureaucrat::signForm(Form& f)
+void Bureaucrat::signAForm(AForm& f)
 {
 	try
 	{
@@ -81,6 +81,17 @@ void Bureaucrat::signForm(Form& f)
 	}
 	catch (std::exception &e) {
 		std::cout << getName() <<  " didn't sign the form " << f.getName() << " because " << e.what() << std::endl; }
+}
+
+void Bureaucrat::execAForm(const AForm& f) const
+{
+	try
+	{
+		f.execute(*this);
+		std::cout << getName() << " executed form " << f.getName() << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << getName() <<  " didn't executed the form " << f.getName() << " because " << e.what() << std::endl; }
 }
 
 /**********************************************************************/

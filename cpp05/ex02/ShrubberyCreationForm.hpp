@@ -10,43 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
-#include <iostream>
-#include <string>
+#include "AForm.hpp"
+#include <fstream>
 
-class Bureaucrat;
-
-class Form
+class ShrubberyCreationForm : public AForm
 {
 	private:
-		const std::string name;
-		bool isSigned;
-		const int signGrade;
-		const int execGrade;
+		std::string target;
+
 	public:
-		~Form();
-		Form();
-		Form(const std::string newName, const int newSign, const int newExec);
-		Form(const Form& copy);
-		Form& operator=(const Form& copy);
+		~ShrubberyCreationForm();
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const ShrubberyCreationForm& copy);
+		ShrubberyCreationForm& operator=(const ShrubberyCreationForm& copy);
 
-		class GradeTooHighException : public std::exception {
-			const char* what() const throw();
-		};
-		class GradeTooLowException : public std::exception {
-			const char* what() const throw();
-		};
+		std::string getTarget() const;
 
-		const std::string getName() const;
-		bool getIsSigned() const;
-		int getSignGrade() const;
-		int getExecGrade() const;
-
-		void beSigned(const Bureaucrat& b);
+		void execForm() const;
 };
-
-std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif

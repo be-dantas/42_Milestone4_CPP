@@ -10,43 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
-#include <iostream>
-#include <string>
+#include "AForm.hpp"
 
-class Bureaucrat;
-
-class Form
+class PresidentialPardonForm : public AForm
 {
 	private:
-		const std::string name;
-		bool isSigned;
-		const int signGrade;
-		const int execGrade;
+		std::string target;
+
 	public:
-		~Form();
-		Form();
-		Form(const std::string newName, const int newSign, const int newExec);
-		Form(const Form& copy);
-		Form& operator=(const Form& copy);
+		~PresidentialPardonForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm& copy);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm& copy);
 
-		class GradeTooHighException : public std::exception {
-			const char* what() const throw();
-		};
-		class GradeTooLowException : public std::exception {
-			const char* what() const throw();
-		};
+		std::string getTarget() const;
 
-		const std::string getName() const;
-		bool getIsSigned() const;
-		int getSignGrade() const;
-		int getExecGrade() const;
-
-		void beSigned(const Bureaucrat& b);
+		void execForm() const;
 };
-
-std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif
