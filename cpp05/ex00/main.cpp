@@ -12,20 +12,6 @@
 
 #include "Bureaucrat.hpp"
 
-/* Bureaucrat("Ana", 0)
-	   ↓
-grade < 1
-	   ↓
-throw GradeTooHighException()
-	   ↓
-programa procura catch
-	   ↓
-catch(std::exception&)
-	   ↓
-e.what()
-	   ↓
-"Grade too high" */
-
 int main()
 {
 	std::cout << "----- Teste 1: criação válida -----" << std::endl;
