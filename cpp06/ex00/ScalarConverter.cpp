@@ -26,17 +26,28 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& copy)
 	return (*this);
 }
 
+/*****************************************************************************/
+
 bool isNum(std::string str)
 {
 	int dot  = 0;
 
 	if (str[0] != '-' && str[0] != '+' && !isdigit(str[0]))
 		return (false);
+	if ((str[0] == '-' || str[0] == '+'))
+	{
+		if (str.length() < 2 || !isdigit(str[1]))
+			return (false);
+	}
 
-	for (int i = 1; i < str.length() - 1; i++)
+	for (size_t i = 1; i + 1 < str.length(); i++)
     {
-        if (str[i] == '.')
-            dot++;
+		if (str[i] == '.')
+		{
+			dot++;
+			if (!isdigit(str[i + 1]))
+				return (false);
+		}
 		else if (!isdigit(str[i]))
 			return (false);
     }
@@ -44,7 +55,7 @@ bool isNum(std::string str)
 	if (dot > 1 || (!isdigit(str.back()) && str.back() != 'f'))
 		return (false);
 
-	return (true);	
+	return (true);
 }
 
 bool isNanInf(std::string str)
@@ -58,7 +69,7 @@ bool isNanInf(std::string str)
 
 void ScalarConverter::convert(std::string str)
 {
-	if (str.length() == 1 && !isdigit(str[0])) //ex: "B"
+	if (str.length() == 1 && !isdigit(str[0]))
 	{
 		std::cout << "char: '" << str[0] << "'" << std::endl;
 		std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
@@ -81,29 +92,53 @@ void ScalarConverter::convert(std::string str)
 			std::cout << "double: " << str << std::endl;
 		}
 	}
-	else if (isNum(str)) //ex "1", "2.4", "2.4f", "0"
+	else if (isNum(str))
 	{
-		if (str.back() == 'f')
-			double dValue = std::stod(str.substr(0, str.length() - 1));
-		else
-			double dValue = std::stod(str);
-
-		if (dValue >= 32 && dValue <= 126)
-			std::cout << "char: '" << static_cast<char>(dValue) << "'" << std::endl;
-		else if ((dValue >= 0 && dValue <= 31) || dValue == 127)
-			std::cout << "char: não exibível" << std::endl;
-		else
+		//str para double
+		double dValue;
+		try
+		{
+			if (str.back() == 'f')
+				dValue = std::stod(str.substr(0, str.length() - 1));
+			else
+				dValue = std::stod(str);
+		}
+		catch (const std::exception& e)
+		{
 			std::cout << "char: impossível" << std::endl;
+			std::cout << "int: impossível" << std::endl;
+			std::cout << "float: impossível" << std::endl;
+			std::cout << "double: impossível" << std::endl;
+			return ;
+		}
+
+		//char
+		if (dValue < 0 || dValue > 126 || dValue != static_cast<int>(dValue))
+			std::cout << "char: impossível" << std::endl;
+		else if (!std::isprint(static_cast<char>(dValue)))
+			std::cout << "char: Não exibível" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(dValue) << "'" << std::endl;
 		
+		//int
 		if (dValue < INT_MIN || dValue > INT_MAX)
 			std::cout << "int: impossível" << std::endl;
 		else
 			std::cout << "int: " << static_cast<int>(dValue) << std::endl;
 
-		std::cout << "float: " << dValue << "f" << std::endl;
+		//força a saída em notação decimal fixa
+		std::cout << std::fixed << std::setprecision(1);
+
+		//float
+		if (dValue < -std::numeric_limits<float>::max() || dValue > std::numeric_limits<float>::max())
+			std::cout << "float: impossível" << std::endl;
+		else
+			std::cout << "float: " << static_cast<float>(dValue) << "f" << std::endl;
+
+		//double
 		std::cout << "double: " << dValue << std::endl;
 	}
-	else //ex: "BIA"
+	else
 	{
 		std::cout << "char: impossível" << std::endl;
 		std::cout << "int: impossível" << std::endl;
