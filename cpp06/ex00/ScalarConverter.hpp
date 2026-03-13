@@ -14,10 +14,13 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-//#include <iomanip>
+#include <iomanip>
 #include <climits>
+#include <cmath>
+#include <cfloat>
+#include <cstdlib>
 #include <cctype>
-#include <string>
+#include <cerrno>
 
 class ScalarConverter
 {

@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Converter
+NAME		= convert
 
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp Converter.cpp
+SRCS		= main.cpp ScalarConverter.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
