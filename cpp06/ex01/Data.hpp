@@ -10,24 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-#include "Data.hpp"
-#include <stdint.h>
-#include <iostream>
-
-class Serializer
+struct Data
 {
-	private:
-		~Serializer();
-		Serializer();
-		Serializer(const Serializer& copy);
-		Serializer& operator=(const Serializer& copy);
-
-	public:
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+	int value;
 };
 
 #endif
