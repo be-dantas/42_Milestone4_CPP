@@ -6,7 +6,7 @@
 /*   By: beatriz <beatriz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 10:51:48 by beatriz           #+#    #+#             */
-/*   Updated: 2026/03/22 19:47:43 by beatriz          ###   ########.fr       */
+/*   Updated: 2026/04/02 16:26:03 by beatriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void BitcoinExchange::createMapData()
 	std::string line;
 	std::ifstream file("data.csv");
 	
-	if (!file.is_open()) {
-		throw std::runtime_error("Error open data.cvs"); }
+	if (!file.is_open())
+		throw std::runtime_error("Error open data.cvs");
 	std::getline(file, line);
 
 	while (std::getline(file, line))
@@ -121,12 +121,12 @@ void BitcoinExchange::processInput(const std::string& input) const
 	std::string line;
 	std::ifstream file(input.c_str());
 	
-	if (!file.is_open()) {
-		throw std::runtime_error("Error open input.txt"); }
+	if (!file.is_open())
+		throw std::runtime_error("Error open input.txt");
 
 	std::getline(file, line);
-	if (line != "date | value") {
-		throw std::runtime_error("Error format input.txt"); }
+	if (line != "date | value")
+		throw std::runtime_error("Error format input.txt");
 	
 	while (std::getline(file, line))
 	{

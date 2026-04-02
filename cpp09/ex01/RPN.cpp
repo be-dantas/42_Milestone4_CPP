@@ -6,7 +6,7 @@
 /*   By: beatriz <beatriz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 21:07:37 by beatriz           #+#    #+#             */
-/*   Updated: 2026/04/01 22:05:43 by beatriz          ###   ########.fr       */
+/*   Updated: 2026/04/02 16:27:23 by beatriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ int RPN::revPolishNotation(const std::string& input)
 
 	while (iss >> tokenIss)
 	{
-		if (tokenIss.size() != 1) {
-			throw std::runtime_error("Error"); }
+		if (tokenIss.size() != 1)
+			throw std::runtime_error("Error");
 
 		if (isdigit(tokenIss[0]))
 			s.push(tokenIss[0] - '0');
 
 		else if (tokenIss[0] == '+' || tokenIss[0] == '-' || tokenIss[0] == '*' || tokenIss[0] == '/')
 		{
-			if (s.size() < 2) {
-				throw std::runtime_error("Error"); }
+			if (s.size() < 2)
+				throw std::runtime_error("Error");
 				
 			int b = s.top();
 			s.pop();
@@ -69,8 +69,8 @@ int RPN::revPolishNotation(const std::string& input)
 		}
 	}
 	
-	if (s.size() != 1) {
-		throw std::runtime_error("Error"); }
+	if (s.size() != 1)
+		throw std::runtime_error("Error");
 
-	return s.top();	
+	return s.top();
 }
