@@ -6,7 +6,7 @@
 /*   By: beatriz <beatriz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 22:11:00 by beatriz           #+#    #+#             */
-/*   Updated: 2026/04/02 16:09:39 by beatriz          ###   ########.fr       */
+/*   Updated: 2026/04/02 16:57:38 by beatriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int main(int argc, char **argv)
 	{
 		PmergeMe pmm;
 		pmm.validInput(argc, argv);
-		std::cout << "Before: " << printVector() << std::endl;
-		pmm.orderMerge();
-		std::cout << "After: " << printVector() << std::endl;
+		pmm.printVector("Before: ");
+		//pmm.orderMerge();
+		pmm.printVector("After: ");
 	}
 	catch (std::exception& e)
 	{

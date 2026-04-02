@@ -6,7 +6,7 @@
 /*   By: beatriz <beatriz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 22:13:17 by beatriz           #+#    #+#             */
-/*   Updated: 2026/04/02 16:13:06 by beatriz          ###   ########.fr       */
+/*   Updated: 2026/04/02 16:55:11 by beatriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include <climits>
 
 class PmergeMe
 {
@@ -28,8 +29,9 @@ class PmergeMe
 		PmergeMe(const PmergeMe& copy);
 		PmergeMe& operator=(const PmergeMe& copy);
 
-		void validInput(const int argc, const char **argv);
-		void orderMerge();
+		void printVector(const std::string str) const;
+		void validInput(int argc, char **argv);
+		//void orderMerge();
 };
 
 #endif

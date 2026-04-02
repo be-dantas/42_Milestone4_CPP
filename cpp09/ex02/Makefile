@@ -6,11 +6,11 @@
 #    By: beatriz <beatriz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/16 16:14:55 by bedantas          #+#    #+#              #
-#    Updated: 2026/04/01 22:10:50 by beatriz          ###   ########.fr        #
+#    Updated: 2026/04/02 16:52:47 by beatriz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= RPN
+NAME		= PmergeMe
 
 CPP			= c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
