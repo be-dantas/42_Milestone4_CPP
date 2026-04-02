@@ -6,7 +6,7 @@
 /*   By: beatriz <beatriz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 22:13:17 by beatriz           #+#    #+#             */
-/*   Updated: 2026/04/02 16:55:11 by beatriz          ###   ########.fr       */
+/*   Updated: 2026/04/02 19:44:20 by beatriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class PmergeMe
 		PmergeMe(const PmergeMe& copy);
 		PmergeMe& operator=(const PmergeMe& copy);
 
+		void initValidInput(int argc, char **argv);
+		void initOrderMerge();
 		void printVector(const std::string str) const;
-		void validInput(int argc, char **argv);
-		//void orderMerge();
 };
 
 #endif
