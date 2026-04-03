@@ -6,7 +6,7 @@
 /*   By: beatriz <beatriz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/22 10:51:48 by beatriz           #+#    #+#             */
-/*   Updated: 2026/04/02 16:26:03 by beatriz          ###   ########.fr       */
+/*   Updated: 2026/04/03 13:54:45 by beatriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ void BitcoinExchange::processInput(const std::string& input) const
 			std::cout << date << " => " << value << " = " << value * rate << std::endl;
 		}
 		catch (std::exception& e) {
-    	std::cout << e.what() << std::endl; }
+    		std::cout << e.what() << std::endl; }
 	}
 }
 
